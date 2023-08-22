@@ -20,14 +20,14 @@ void logo(){
     printf("        /  / /______    / //   /  /   |   //  / /_____   / /\n");
     printf("       /  /________//  /_//   /  /    |__//  /_______// / /\n");
     printf("      /________________________________________________/_/\n");
-    printf("      |___________________| PANAMBI |_________________/  /\n");
-    printf("      /                                              /  /\n");
-    printf("     /                  ( )___( )                   /  /\n");
-    printf("    /                 _Y         Y_                /  /\n");
-    printf("   /                  |   @   @   |               /  /\n");
-    printf("  /                    Y  (* *)  Y               /  /\n");
-    printf(" /                      Y______ Y               /  /\n");
-    printf("/______________________________________________/__/\n");
+    printf("      |___________________| PANAMBI |_________________/_/\n");
+    printf("      /                                              / /\n");
+    printf("     /                  ( )___( )                   / /\n");
+    printf("    /                 _Y         Y_                / /\n");
+    printf("   /                  |   @   @   |               / /\n");
+    printf("  /                    Y  (* *)  Y               / /\n");
+    printf(" /                      Y______ Y               / /\n");
+    printf("/______________________________________________/_/\n");
 }
 int init(){
     //le os dados do arquivo banco-voos.txt e armazena na struct, o arquivo esta sendo usado como banco de dados
