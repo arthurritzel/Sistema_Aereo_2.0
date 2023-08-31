@@ -1,4 +1,4 @@
-int emissao(){
+int emissao(int *tamanho_struct){
     int idb, i, very = 0, flag = 0, very2 = 0, cons, esc2;
     char nome[40];
     int idade;
@@ -25,7 +25,7 @@ int emissao(){
         scanf("%i", &cons);
         if (cons == 1){
             //Inicia a funcao consluta que esta no aqruivo consulta.h
-            consulta();
+            consulta(tamanho_struct);
         }else if(cons == 3){
             return 0;
         }
@@ -33,8 +33,8 @@ int emissao(){
         printf("Digite o id do filme para emiti-la: ");
         scanf("%i", &idb);
         
-        for (i = 0; i < 20; i++){
-            if(idb == voo[i].id){//verifica existencia do ID da passagem
+        for (i = 0; i < *tamanho_struct; i++){
+            if(idb == filme[i].id){//verifica existencia do ID da passagem
                 fflush(stdin);
                 printf("Digite seu nome completo: ");
                 gets(nome);
@@ -81,11 +81,11 @@ int emissao(){
                         printf("IDADE: %i\n", idade);
                         printf("----------------------------------------\n\n");
                         printf("-------------------\n");
-                        printf("id: %i\n", voo[i].id);
-                        printf("Partida: %s\n", voo[i].partida);
-                        printf("Destino: %s\n", voo[i].destino);
-                        printf("Horario: %s\n", voo[i].hora);
-                        printf("Valor: %.2f\n", voo[i].valor);
+                        printf("id: %i\n", filme[i].id);
+                        printf("Partida: %s\n", filme[i].partida);
+                        printf("Destino: %s\n", filme[i].destino);
+                        printf("Horario: %s\n", filme[i].hora);
+                        printf("Valor: %.2f\n", filme[i].valor);
                         printf("-------------------\n\n");
                         printf("----------------------------------------\n");
                         printf("|           MAPA DE POLTRONAS          |\n");
@@ -114,11 +114,11 @@ int emissao(){
                             fprintf(passagem, "IDADE: %i\n", idade);
                             fprintf(passagem, "----------------------------------------\n\n");
                             fprintf(passagem, "-------------------\n");
-                            fprintf(passagem, "id: %i\n", voo[i].id);
-                            fprintf(passagem, "Partida: %s\n", voo[i].partida);
-                            fprintf(passagem, "Destino: %s\n", voo[i].destino);
-                            fprintf(passagem, "Horario: %s\n", voo[i].hora);
-                            fprintf(passagem, "Valor: %.2f\n", voo[i].valor);
+                            fprintf(passagem, "id: %i\n", filme[i].id);
+                            fprintf(passagem, "Partida: %s\n", filme[i].partida);
+                            fprintf(passagem, "Destino: %s\n", filme[i].destino);
+                            fprintf(passagem, "Horario: %s\n", filme[i].hora);
+                            fprintf(passagem, "Valor: %.2f\n", filme[i].valor);
                             fprintf(passagem, "-------------------\n\n");
                             fprintf(passagem, "----------------------------------------\n");
                             fprintf(passagem, "|           MAPA DE POLTRONAS          |\n");

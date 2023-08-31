@@ -1,4 +1,4 @@
-int excluir(){
+int excluir(int *tamanho_struct){
     int idb = 0, flag = 0, opc = 0, esc = 0;
     do{//laco de repeticao para conferencia
         flag = 0;
@@ -9,20 +9,20 @@ int excluir(){
         }
         
         for (int i = 0; i < 20; i++) {
-            if (idb == voo[i].id) {
+            if (idb == filme[i].id) {
                 flag = 1;
-                printf("\nPartida: %s\n", voo[i].partida);
-                printf("Destino: %s\n", voo[i].destino);
-                printf("Horario: %s\n", voo[i].hora);
-                printf("Valor: %.2f\n\n", voo[i].valor);
+                printf("\nPartida: %s\n", filme[i].partida);
+                printf("Destino: %s\n", filme[i].destino);
+                printf("Horario: %s\n", filme[i].hora);
+                printf("Valor: %.2f\n\n", filme[i].valor);
                 printf("Tem certeza que deseja excluir esse filme? (Essa acao nao sera reversivel)\n[1]Sim\n[2]Nao\n->");
                 scanf("%i", &esc);
                     if(esc == 1){
-                    voo[i].id = -1;
-                    strcpy(voo[i].partida, " \n");
-                    strcpy(voo[i].destino, " \n");
-                    strcpy(voo[i].hora, " \n");
-                    voo[i].valor = 0;
+                    filme[i].id = -1;
+                    strcpy(filme[i].partida, " \n");
+                    strcpy(filme[i].destino, " \n");
+                    strcpy(filme[i].hora, " \n");
+                    filme[i].valor = 0;
                     printf("Filme excluido com sucesso!\n");
                     break;
                 }
@@ -36,5 +36,5 @@ int excluir(){
             opc = 2;
         } 
     }while (opc != 2);
-    finit();
+    finit(tamanho_struct);
 }

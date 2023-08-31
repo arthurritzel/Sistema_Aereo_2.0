@@ -8,7 +8,7 @@ struct dados{
         char destino[20];
         char hora[20];
         float valor;
-    }voo[20];
+    }*filme;
 
 void logo(){
     //funcao apenas para mostrar a logo ao usuario
@@ -29,69 +29,82 @@ void logo(){
     printf(" /                      Y______ Y               / /\n");
     printf("/______________________________________________/_/\n");
 }
-int init(){
-    //le os dados do arquivo banco-voos.txt e armazena na struct, o arquivo esta sendo usado como banco de dados
+int init(int *tamanho_struct){
+    //le os dados do arquivo banco-filmes.txt e armazena na struct, o arquivo esta sendo usado como banco de dados
     FILE *file;
-    file = fopen("banco-voos.txt", "r");
+    file = fopen("banco-filmes.txt", "r");
     if (file == NULL){
         printf("Problemas na consulta do banco de dados\n");
         return 0;
     }
-
+    
     char vet[20], aux[20];
-    int cont = 0, i = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
+    int cont = 0, i = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, mal = 0;
 
-    while (fgets(vet, 20, file) != NULL){
+    while (fgets(vet, 100, file) != NULL){
+        
+        if(mal == 0){
+            filme = (struct dados*) malloc(sizeof(struct dados));
+            mal++;
+            if(filme == NULL){
+                printf("Erro na alocacao");
+                    
+            }   
+        }
+        
         if(cont == 0){
             strcpy(aux, vet);
-            voo[i].id = atoi(aux);
+            filme[i].id = atoi(aux);
             i++;
+            *tamanho_struct += 1;
+            filme = (struct dados*) realloc(filme, (*tamanho_struct+1) * sizeof(struct dados));
         }
 
         if(cont == 1){
             strcpy(aux, vet);
-            strcpy(voo[i2].partida, aux);
+            strcpy(filme[i2].partida, aux);
             i2++;
         }
         if(cont == 2){
             strcpy(aux, vet);
-            strcpy(voo[i3].destino, aux);
+            strcpy(filme[i3].destino, aux);
             i3++;
         }
         if(cont == 3){
             strcpy(aux, vet);
-            strcpy(voo[i4].hora, aux);
+            strcpy(filme[i4].hora, aux);
             i4++;
         }
         if(cont == 4){
             strcpy(aux, vet);
-            voo[i5].valor = atof(aux);
+            filme[i5].valor = atof(aux);
             i5++;
         }
         cont++;
         if (cont >=5){
             cont = 0;
         }   
+        
     }
     fclose(file);
     return 0;
 }
 
-int finit(){
-    //armazena todos os dados da struct voos no arquivo banco-voos.txt
+int finit(int *tamanho_struct){
+    //armazena todos os dados da struct filmes no arquivo banco-filmes.txt
     FILE *file;
-    file = fopen("banco-voos.txt", "w");
+    file = fopen("banco-filmes.txt", "w");
     if (file == NULL){
         printf("Problemas na gravacao do banco de dados\n");
         return 0;
     } 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < *tamanho_struct; i++)
     {
-        fprintf(file, "%i\n", voo[i].id);
-        fprintf(file, "%s", voo[i].partida);
-        fprintf(file, "%s", voo[i].destino);
-        fprintf(file, "%s", voo[i].hora);
-        fprintf(file, "%f\n", voo[i].valor);
+        fprintf(file, "%i\n", filme[i].id);
+        fprintf(file, "%s", filme[i].partida);
+        fprintf(file, "%s", filme[i].destino);
+        fprintf(file, "%s", filme[i].hora);
+        fprintf(file, "%f\n", filme[i].valor);
     }
     fclose(file);
     return 0;
@@ -104,8 +117,9 @@ int finit(){
 #include "src/emissao.h"
 
 int main(){
-
-    init();
+    int tamanho_struct = 0;
+   
+    init(&tamanho_struct);
 
     int escolha, very = 0, very3 = 0, esc = 0, flag = 0, very4 = 0, esc_cl;
     char senha[15], confsenha[15] = "12345";
@@ -115,6 +129,7 @@ int main(){
         logo();
 
         // Primeira perguta ao usuario
+        printf("%i", tamanho_struct);
         printf("Selecione sua opcao\n[1]Cliente\n[2]ADM\n[3]Sair\n->");
         scanf("%i", &esc);
         switch (esc){
@@ -135,7 +150,7 @@ int main(){
                     printf("|           Consulta de Filmes           |\n");
                     printf("------------------------------------------\n");
                     //Inicia a funcao consluta que esta no aqruivo consulta.h
-                    consulta();
+                    consulta(&tamanho_struct);
 
                     break;
                 case 2:
@@ -144,7 +159,7 @@ int main(){
                     printf("|            Emitir Ingresso           |\n");
                     printf("----------------------------------------\n");
                     //Inicia a funcao emissao que esta no aqruivo emissao.h
-                    emissao();
+                    emissao(&tamanho_struct);
 
                     break;
                 case 3:
@@ -186,7 +201,7 @@ int main(){
                             printf("|           Consulta de filmes           |\n");
                             printf("------------------------------------------\n");
                             //Inicia a funcao consulta que esta no aqruivo consulta.h
-                            consulta();
+                            consulta(&tamanho_struct);
 
                             break;
                         case 2:
@@ -197,7 +212,7 @@ int main(){
                             printf("|           Cadastro de filme            |\n");
                             printf("------------------------------------------\n");
                             //Inicia a funcao cadastro que esta no aqruivo cadastro.h
-                            cadastro();
+                            cadastro(&tamanho_struct);
 
                         break;
                         case 3:
@@ -208,7 +223,7 @@ int main(){
                             printf("|           Atualizacao de filme         |\n");
                             printf("------------------------------------------\n");
                             //Inicia a funcao atualizar que esta no aqruivo atualizar.h
-                            atualizar();
+                            atualizar(&tamanho_struct);
 
                         break;
                         case 4:
@@ -219,7 +234,7 @@ int main(){
                             printf("|              Excluir filme             |\n");
                             printf("------------------------------------------\n");
                             //Inicia a funcao excluir que esta no aqruivo excluir.h
-                            excluir();
+                            excluir(&tamanho_struct);
 
                         break;
                         case 5:
@@ -254,5 +269,5 @@ int main(){
             break;
         }
     }while(very != 0);
-    finit();
+    finit(&tamanho_struct);
 }   
