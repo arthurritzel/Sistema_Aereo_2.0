@@ -11,16 +11,16 @@ int excluir(int *tamanho_struct){
         for (int i = 0; i < 20; i++) {
             if (idb == filme[i].id) {
                 flag = 1;
-                printf("\nPartida: %s\n", filme[i].partida);
-                printf("Destino: %s\n", filme[i].destino);
+                printf("\nnome: %s\n", filme[i].nome);
+                printf("sala: %s\n", filme[i].sala);
                 printf("Horario: %s\n", filme[i].hora);
                 printf("Valor: %.2f\n\n", filme[i].valor);
                 printf("Tem certeza que deseja excluir esse filme? (Essa acao nao sera reversivel)\n[1]Sim\n[2]Nao\n->");
                 scanf("%i", &esc);
                     if(esc == 1){
                     filme[i].id = -1;
-                    strcpy(filme[i].partida, " \n");
-                    strcpy(filme[i].destino, " \n");
+                    strcpy(filme[i].nome, " \n");
+                    strcpy(filme[i].sala, " \n");
                     strcpy(filme[i].hora, " \n");
                     filme[i].valor = 0;
                     printf("Filme excluido com sucesso!\n");

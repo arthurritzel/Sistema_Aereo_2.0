@@ -4,8 +4,8 @@
 //RODAR O CODIGO A PARTIR DO .EXE ASSIM O CAMINHO DE ACESSO AO BANCO DE DADOS FICA CORRETO!
 struct dados{
         int id;
-        char partida[20];
-        char destino[20];
+        char nome[20];
+        char sala[20];
         char hora[20];
         float valor;
     }*filme;
@@ -62,12 +62,12 @@ int init(int *tamanho_struct){
 
         if(cont == 1){
             strcpy(aux, vet);
-            strcpy(filme[i2].partida, aux);
+            strcpy(filme[i2].nome, aux);
             i2++;
         }
         if(cont == 2){
             strcpy(aux, vet);
-            strcpy(filme[i3].destino, aux);
+            strcpy(filme[i3].sala, aux);
             i3++;
         }
         if(cont == 3){
@@ -101,8 +101,8 @@ int finit(int *tamanho_struct){
     for (int i = 0; i < *tamanho_struct; i++)
     {
         fprintf(file, "%i\n", filme[i].id);
-        fprintf(file, "%s", filme[i].partida);
-        fprintf(file, "%s", filme[i].destino);
+        fprintf(file, "%s", filme[i].nome);
+        fprintf(file, "%s", filme[i].sala);
         fprintf(file, "%s", filme[i].hora);
         fprintf(file, "%f\n", filme[i].valor);
     }
@@ -270,4 +270,5 @@ int main(){
         }
     }while(very != 0);
     finit(&tamanho_struct);
+    free(filme);
 }   

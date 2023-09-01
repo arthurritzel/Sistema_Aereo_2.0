@@ -22,13 +22,13 @@ int cadastro(int *tamanho_struct){
         filme = (struct dados*) realloc(filme, (*tamanho_struct+1) * sizeof(struct dados));
         filme[*tamanho_struct].id = idcad;
         fflush(stdin);
-        printf("Digite o ponto de partida do filme: ");
-        gets(filme[*tamanho_struct].partida);
-        strcat(filme[*tamanho_struct].partida, "\n");
+        printf("Digite o nome do filme: ");
+        gets(filme[*tamanho_struct].nome);
+        strcat(filme[*tamanho_struct].nome, "\n");
         fflush(stdin);
-        printf("Digite o destino do filme: ");
-        gets(filme[*tamanho_struct].destino);
-        strcat(filme[*tamanho_struct].destino, "\n");
+        printf("Digite a sala do filme: ");
+        gets(filme[*tamanho_struct].sala);
+        strcat(filme[*tamanho_struct].sala, "\n");
         fflush(stdin);
         printf("Digite o horario do filme: ");
         gets(filme[*tamanho_struct].hora);
@@ -37,7 +37,7 @@ int cadastro(int *tamanho_struct){
         printf("Digite o valor do filme: ");
         scanf("%f", &filme[*tamanho_struct].valor);
         fflush(stdin);
-        printf("filme CADASTRADO COM SUCESSO!\n");
+        printf("FILME CADASTRADO COM SUCESSO!\n");
 
         *tamanho_struct += 1;
     finit(tamanho_struct);

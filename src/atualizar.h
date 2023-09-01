@@ -23,8 +23,8 @@ int atualizar(int *tamanho_struct){
                     printf("Quais dados deseja substituir?\n");
                     printf("-------------------\n");
                     printf("id: %i\n", filme[i].id);
-                    printf("[1] Partida: %s\n", filme[i].partida);
-                    printf("[2] Destino: %s\n", filme[i].destino);
+                    printf("[1] nome: %s\n", filme[i].nome);
+                    printf("[2] sala: %s\n", filme[i].sala);
                     printf("[3] Horario: %s\n", filme[i].hora);
                     printf("[4] Valor: %.2f\n", filme[i].valor);
                     printf("[5] Alterar todos os dados\n");
@@ -37,17 +37,17 @@ int atualizar(int *tamanho_struct){
 
             switch (subs) {                               
             case 1:
-                printf("Partida: ");
+                printf("nome: ");
                 fflush(stdin);
-                gets(filme[new].partida);
-                strcat(filme[new].partida, "\n"); 
+                gets(filme[new].nome);
+                strcat(filme[new].nome, "\n"); 
                 atualizado=1;                                         
             break; 
             case 2:
-                printf("Destino: ");
+                printf("sala: ");
                 fflush(stdin);
-                gets(filme[new].destino);  
-                strcat(filme[new].destino, "\n"); 
+                gets(filme[new].sala);  
+                strcat(filme[new].sala, "\n"); 
                 atualizado=1;                                           
             break;
             case 3:
@@ -64,16 +64,16 @@ int atualizar(int *tamanho_struct){
                 atualizado=1;                                            
             break;    
             case 5:
-                printf("Partida: ");
+                printf("nome: ");
                 fflush(stdin);
-                gets(filme[new].partida);    
-                strcat(filme[new].partida, "\n"); 
+                gets(filme[new].nome);    
+                strcat(filme[new].nome, "\n"); 
                 fflush(stdin); 
 
-                printf("Destino: ");
+                printf("sala: ");
                 fflush(stdin);
-                gets(filme[new].destino);
-                strcat(filme[new].destino, "\n");  
+                gets(filme[new].sala);
+                strcat(filme[new].sala, "\n");  
                 fflush(stdin); 
 
                 printf("Horario: ");

@@ -11,8 +11,8 @@ int consulta(int *tamanho_struct){
                 if(idb == filme[i].id){//preocura o assento com o mesmo id digitado
                     printf("-------------------\n");
                     printf("id: %i\n", filme[i].id);
-                    printf("Partida: %s\n", filme[i].partida);
-                    printf("Destino: %s\n", filme[i].destino);
+                    printf("nome: %s\n", filme[i].nome);
+                    printf("sala: %s\n", filme[i].sala);
                     printf("Horario: %s\n", filme[i].hora);
                     printf("Valor: %.2f\n", filme[i].valor);
                     printf("-------------------\n");
@@ -30,8 +30,8 @@ int consulta(int *tamanho_struct){
     }else if(opc == 2){
         for (int i = 0; i < *tamanho_struct; i++){
                 printf("Id: %i\n", filme[i].id);
-                printf("Ponto de partida: %s\n", filme[i].partida);
-                printf("Destino: %s\n", filme[i].destino);
+                printf("nome: %s\n", filme[i].nome);
+                printf("sala: %s\n", filme[i].sala);
                 printf("Horario: %s\n", filme[i].hora);
                 printf("Valor: %.2f\n", filme[i].valor);
                 printf("-----------------------------\n\n");

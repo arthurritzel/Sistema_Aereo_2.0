@@ -12,9 +12,9 @@ int emissao(int *tamanho_struct){
         }
     }
 
-    FILE *passagem;
-    passagem = fopen("passagem.txt", "w");
-    if (passagem == NULL){
+    FILE *ingresso;
+    ingresso = fopen("ingresso.txt", "w");
+    if (ingresso == NULL){
         printf("Problemas na CRIACAO do arquivo\n");
         return 0;
     }
@@ -30,11 +30,11 @@ int emissao(int *tamanho_struct){
             return 0;
         }
         
-        printf("Digite o id do filme para emiti-la: ");
+        printf("Digite o id do filme para emitir: ");
         scanf("%i", &idb);
         
         for (i = 0; i < *tamanho_struct; i++){
-            if(idb == filme[i].id){//verifica existencia do ID da passagem
+            if(idb == filme[i].id){//verifica existencia do ID da ingresso
                 fflush(stdin);
                 printf("Digite seu nome completo: ");
                 gets(nome);
@@ -43,12 +43,12 @@ int emissao(int *tamanho_struct){
                     printf("Digite sua idade: ");
                     scanf("%i", &idade);
                     if(16 < idade){
-                    
+                    printf("----------------------------------------\n\n");
+                    printf("|                 TELA                 |\n");  
+                    printf("----------------------------------------\n\n");
                     for (int i = 0; i < 7; i++){// exibicao dos assentos
+                        printf("\t");
                         for (int j = 0; j < 4; j++){   
-                            if (j == 2){
-                                printf("  ");
-                            }
                             printf("| %.2i |", assentos[i][j]);   
                         }
                         printf("\n");
@@ -74,7 +74,7 @@ int emissao(int *tamanho_struct){
                     }while(very3 != 0);
                         very2 = 1;
                         printf("----------------------------------------\n");
-                        printf("|         FLYPIG INTERNATIONAL         |\n");
+                        printf("|             CINE PANAMBI             |\n");
                         printf("----------------------------------------\n\n");
                         printf("----------------------------------------\n");
                         printf("NOME: %s\n", nome);
@@ -82,19 +82,21 @@ int emissao(int *tamanho_struct){
                         printf("----------------------------------------\n\n");
                         printf("-------------------\n");
                         printf("id: %i\n", filme[i].id);
-                        printf("Partida: %s\n", filme[i].partida);
-                        printf("Destino: %s\n", filme[i].destino);
+                        printf("nome: %s\n", filme[i].nome);
+                        printf("sala: %s\n", filme[i].sala);
                         printf("Horario: %s\n", filme[i].hora);
                         printf("Valor: %.2f\n", filme[i].valor);
                         printf("-------------------\n\n");
                         printf("----------------------------------------\n");
                         printf("|           MAPA DE POLTRONAS          |\n");
                         printf("----------------------------------------\n\n");
+                        printf("----------------------------------------\n\n");
+                        printf("|                 TELA                 |\n");  
+                        printf("----------------------------------------\n\n");
+                                              
                         for (int i = 0; i < 7; i++){
-                                for (int j = 0; j < 4; j++){  //exive os assentos 
-                                    if (j == 2){
-                                        printf("  ");
-                                    }
+                                printf("\t");
+                                for (int j = 0; j < 4; j++){  //exibe os assentos 
                                     if(assentos[i][j] != 0){
                                         printf("| %.2i |", assentos[i][j]);//o assento escolhido anteriormente sera o unico com valor de 0 assim sera substituido por XX 
                                     }else{
@@ -103,45 +105,46 @@ int emissao(int *tamanho_struct){
                                 }
                                 printf("\n");
                             }  
-                        printf("Confirmar Passagem?\n[1]Sim\n[2]Nao\n->");
+                        printf("Confirmar ingresso?\n[1]Sim\n[2]Nao\n->");
                         scanf("%i", &esc2);//caso confirmada grava os dados no arquivo txt
                         if (esc2 == 1){
-                            fprintf(passagem, "----------------------------------------\n");
-                            fprintf(passagem, "|         FLYPIG INTERNATIONAL         |\n");
-                            fprintf(passagem, "----------------------------------------\n\n");
-                            fprintf(passagem, "----------------------------------------\n");
-                            fprintf(passagem, "NOME: %s\n", nome);
-                            fprintf(passagem, "IDADE: %i\n", idade);
-                            fprintf(passagem, "----------------------------------------\n\n");
-                            fprintf(passagem, "-------------------\n");
-                            fprintf(passagem, "id: %i\n", filme[i].id);
-                            fprintf(passagem, "Partida: %s\n", filme[i].partida);
-                            fprintf(passagem, "Destino: %s\n", filme[i].destino);
-                            fprintf(passagem, "Horario: %s\n", filme[i].hora);
-                            fprintf(passagem, "Valor: %.2f\n", filme[i].valor);
-                            fprintf(passagem, "-------------------\n\n");
-                            fprintf(passagem, "----------------------------------------\n");
-                            fprintf(passagem, "|           MAPA DE POLTRONAS          |\n");
-                            fprintf(passagem, "----------------------------------------\n\n");
+                            fprintf(ingresso, "----------------------------------------\n");
+                            fprintf(ingresso, "|             CINE PANAMBI             |\n");
+                            fprintf(ingresso, "----------------------------------------\n\n");
+                            fprintf(ingresso, "----------------------------------------\n");
+                            fprintf(ingresso, "NOME: %s\n", nome);
+                            fprintf(ingresso, "IDADE: %i\n", idade);
+                            fprintf(ingresso, "----------------------------------------\n\n");
+                            fprintf(ingresso, "-------------------\n");
+                            fprintf(ingresso, "id: %i\n", filme[i].id);
+                            fprintf(ingresso, "nome: %s\n", filme[i].nome);
+                            fprintf(ingresso, "sala: %s\n", filme[i].sala);
+                            fprintf(ingresso, "Horario: %s\n", filme[i].hora);
+                            fprintf(ingresso, "Valor: %.2f\n", filme[i].valor);
+                            fprintf(ingresso, "-------------------\n\n");
+                            fprintf(ingresso, "----------------------------------------\n");
+                            fprintf(ingresso, "|           MAPA DE POLTRONAS          |\n");
+                            fprintf(ingresso, "----------------------------------------\n\n");
+                            fprintf(ingresso, "----------------------------------------\n\n");
+                            fprintf(ingresso, "|                 TELA                  |\n");  
+                            fprintf(ingresso, "----------------------------------------\n\n");
                             for (int i = 0; i < 7; i++){
+                                    fprintf(ingresso, "\t");
                                     for (int j = 0; j < 4; j++){   
-                                        if (j == 2){
-                                            fprintf(passagem, "  ");
-                                        }
                                         if(assentos[i][j] != 0){
-                                            fprintf(passagem, "| %.2i |", assentos[i][j]);   
+                                            fprintf(ingresso, "| %.2i |", assentos[i][j]);   
                                         }else{
-                                            fprintf(passagem, "| xx |");
+                                            fprintf(ingresso, "| xx |");
                                         }
                                     }
-                                    fprintf(passagem, "\n");
+                                    fprintf(ingresso, "\n");
                                 }  
-                            fclose(passagem);
+                            fclose(ingresso);
                             flag = 1;
                             very = 1;
-                            printf("\nPassagem emitida com sucesso!\n");
+                            printf("\nIngresso emitido com sucesso!\n");
                         }else{
-                            printf("Passagem cancelada\n");
+                            printf("Ingresso cancelado\n");
                             very = 1;
                             flag = 1;
                         }
