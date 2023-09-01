@@ -7,7 +7,7 @@ int atualizar(int *tamanho_struct){
         return 0;
     }
     
-    for (int i = 0; i < 20; i++){
+    for (int i = 0; i < *tamanho_struct; i++){
         if(idat == filme [i].id){
             exist = 1;
         }
@@ -18,7 +18,7 @@ int atualizar(int *tamanho_struct){
     }else {  
         do{   
             printf("-------------------\n");
-            for (int i = 0; i < 20; i++){
+            for (int i = 0; i < *tamanho_struct; i++){
                 if(idat == filme[i].id){
                     printf("Quais dados deseja substituir?\n");
                     printf("-------------------\n");
