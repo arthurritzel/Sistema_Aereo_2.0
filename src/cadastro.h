@@ -1,8 +1,9 @@
 int cadastro(int *tamanho_struct){
     int idcad = 0;
     int veryc = 1;
+    
     do{//laco de verificacao de existencia de id
-    printf("%i", *tamanho_struct);
+    
         printf("Digite o id do filme\nDigite 0 para cancelar\n-> ");
         scanf("%i", &idcad);
         if (idcad == 0){
@@ -40,5 +41,8 @@ int cadastro(int *tamanho_struct){
         printf("FILME CADASTRADO COM SUCESSO!\n");
 
         *tamanho_struct += 1;
+
+        
+
     finit(tamanho_struct);
 }

@@ -37,7 +37,7 @@ int excluir(int *tamanho_struct){
                             filme = (struct dados*) realloc(filme, (*tamanho_struct-1) * sizeof(struct dados));
                         }
                         *tamanho_struct -= 1;
-                        printf("Filme excluido com sucesso");
+                        printf("Filme excluido com sucesso\n");
                 }
             }
         }
@@ -49,5 +49,30 @@ int excluir(int *tamanho_struct){
             opc = 2;
         } 
     }while (opc != 2);
+
+    for (int i = 0; i < *tamanho_struct; i++){
+        for (int j = i; j < *tamanho_struct; j++){
+            if (filme[i].id > filme[j].id){
+                auxid = filme[i].id;
+                strcpy(auxnome, filme[i].nome);
+                strcpy(auxsala, filme[i].sala);
+                strcpy(auxhora, filme[i].hora);
+                auxvalor = filme[i].valor;
+
+                filme[i].id = filme[j].id;
+                strcpy(filme[i].nome, filme[j].nome);
+                strcpy(filme[i].sala, filme[j].sala);
+                strcpy(filme[i].hora, filme[j].hora);
+                filme[i].valor = filme[j].valor;
+
+                filme[j].id = auxid;
+                strcpy(filme[j].nome, auxnome);
+                strcpy(filme[j].sala, auxsala);
+                strcpy(filme[j].hora, auxhora);
+                filme[j].valor = auxvalor;
+            }
+            
+        }
+    }
     finit(tamanho_struct);
 }

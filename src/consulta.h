@@ -1,6 +1,6 @@
 int consulta(int *tamanho_struct){
     int opc = 0, idb, flag = 0, very = 0;
-    printf("%i", *tamanho_struct);
+   
     printf("Deseja:\n[1]Filtrar a busca\n[2]Apresentar todos os filmes\n[3]Cancelar\n->");
     scanf("%i", &opc);
     if(opc == 1){

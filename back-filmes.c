@@ -11,64 +11,64 @@ struct dados{
     }filme[10];
     int atr(){
         filme[0].id = 1;
-        strcpy(filme[0].nome, "Sao Paulo");
-        strcpy(filme[0].sala, "Rio de Janeiro");
-        strcpy(filme[0].hora, "11:30");
-        filme[0].valor = 1000;
+        strcpy(filme[0].nome, "Matrix"); // Nome do filme
+        strcpy(filme[0].sala, "Sala A"); // Cidade de exibição
+        strcpy(filme[0].hora, "11:30"); // Horário de exibição
+        filme[0].valor = 20.0;   
 
         filme[1].id = 2;
-        strcpy(filme[1].nome, "Belo Horizonte");
-        strcpy(filme[1].sala, "Salvador");
+        strcpy(filme[1].nome, "Titanic");
+        strcpy(filme[1].sala, "Sala B");
         strcpy(filme[1].hora, "14:45");
-        filme[1].valor = 1500;
+        filme[1].valor = 18.0;
 
         filme[2].id = 3;
-        strcpy(filme[2].nome, "Recife");
-        strcpy(filme[2].sala, "Fortaleza");
-        strcpy(filme[2].hora, "09:20");
-        filme[2].valor = 1200;
+        strcpy(filme[2].nome, "Jurassic Park");
+        strcpy(filme[2].sala, "Sala C");
+        strcpy(filme[2].hora, "10:00");
+        filme[2].valor = 22.5;
 
         filme[3].id = 4;
-        strcpy(filme[3].nome, "Porto Alegre");
-        strcpy(filme[3].sala, "Curitiba");
-        strcpy(filme[3].hora, "08:30");
-        filme[3].valor = 800;
+        strcpy(filme[3].nome, "Star Wars");
+        strcpy(filme[3].sala, "Sala D");
+        strcpy(filme[3].hora, "13:15");
+        filme[3].valor = 21.0;
 
         filme[4].id = 5;
-        strcpy(filme[4].nome, "Brasilia");
-        strcpy(filme[4].sala, "Manaus");
-        strcpy(filme[4].hora, "13:15");
-        filme[4].valor = 1800;
+        strcpy(filme[4].nome, "Indiana Jones");
+        strcpy(filme[4].sala, "Sala E");
+        strcpy(filme[4].hora, "16:30");
+        filme[4].valor = 19.5;
 
         filme[5].id = 6;
-        strcpy(filme[5].nome, "Porto Seguro");
-        strcpy(filme[5].sala, "Natal");
-        strcpy(filme[5].hora, "10:40");
-        filme[5].valor = 1300;
+        strcpy(filme[5].nome, "O Rei Leão");
+        strcpy(filme[5].sala, "Sala F");
+        strcpy(filme[5].hora, "12:45");
+        filme[5].valor = 17.0;
 
         filme[6].id = 7;
-        strcpy(filme[6].nome, "Florianopolis");
-        strcpy(filme[6].sala, "Foz do Iguacu");
-        strcpy(filme[6].hora, "15:50");
-        filme[6].valor = 900;
+        strcpy(filme[6].nome, "Pulp Fiction");
+        strcpy(filme[6].sala, "Sala G");
+        strcpy(filme[6].hora, "15:00");
+        filme[6].valor = 20.0;
 
         filme[7].id = 8;
-        strcpy(filme[7].nome, "Sao Luis");
-        strcpy(filme[7].sala, "Belem");
-        strcpy(filme[7].hora, "12:20");
-        filme[7].valor = 1100;
+        strcpy(filme[7].nome, "E.T.");
+        strcpy(filme[7].sala, "Sala H");
+        strcpy(filme[7].hora, "11:15");
+        filme[7].valor = 18.5;
 
         filme[8].id = 9;
-        strcpy(filme[8].nome, "Goiania");
-        strcpy(filme[8].sala, "Cuiaba");
-        strcpy(filme[8].hora, "14:00");
-        filme[8].valor = 950;
+        strcpy(filme[8].nome, "Forrest Gump");
+        strcpy(filme[8].sala, "Sala I");
+        strcpy(filme[8].hora, "14:30");
+        filme[8].valor = 21.5;
 
         filme[9].id = 10;
-        strcpy(filme[9].nome, "Joao Pessoa");
-        strcpy(filme[9].sala, "Maceio");
-        strcpy(filme[9].hora, "17:30");
-        filme[9].valor = 1200;
+        strcpy(filme[9].nome, "Avatar");
+        strcpy(filme[9].sala, "Sala J");
+        strcpy(filme[9].hora, "17:45");
+        filme[9].valor = 23.0;
     return 0;
 }
 int finit(){

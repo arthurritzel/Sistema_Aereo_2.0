@@ -129,7 +129,6 @@ int main(){
         logo();
 
         // Primeira perguta ao usuario
-        printf("%i", tamanho_struct);
         printf("Selecione sua opcao\n[1]Cliente\n[2]ADM\n[3]Sair\n->");
         scanf("%i", &esc);
         switch (esc){
