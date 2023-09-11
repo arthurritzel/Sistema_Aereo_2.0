@@ -10,7 +10,7 @@ int excluir(int *tamanho_struct){
             return 0;
         }
         
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < *tamanho_struct; i++) {
             if (idb == filme[i].id) {
                 flag = 1;
                 printf("\nnome: %s\n", filme[i].nome);
@@ -23,12 +23,6 @@ int excluir(int *tamanho_struct){
                         if (i == *tamanho_struct-1){
                             filme = (struct dados*) realloc(filme, (*tamanho_struct-1) * sizeof(struct dados));
                         }else{
-                            auxid = filme[i].id;
-                            strcpy(auxnome, filme[i].nome);
-                            strcpy(auxsala, filme[i].sala);
-                            strcpy(auxhora, filme[i].hora);
-                            auxvalor = filme[i].valor;
-
                             filme[i].id = filme[*tamanho_struct-1].id;
                             strcpy(filme[i].nome, filme[*tamanho_struct-1].nome);
                             strcpy(filme[i].sala, filme[*tamanho_struct-1].sala);
@@ -71,7 +65,6 @@ int excluir(int *tamanho_struct){
                 strcpy(filme[j].hora, auxhora);
                 filme[j].valor = auxvalor;
             }
-            
         }
     }
     finit(tamanho_struct);
