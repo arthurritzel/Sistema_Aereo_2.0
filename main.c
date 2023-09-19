@@ -39,46 +39,43 @@ int init(int *tamanho_struct){
     }
     
     char vet[20], aux[20];
-    int cont = 0, i = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0, mal = 0;
+    int cont = 0, i = -1, mal = 0;
 
     while (fgets(vet, 100, file) != NULL){
-        
-        if(mal == 0){
-            filme = (struct dados*) malloc(sizeof(struct dados));
-            mal++;
-            if(filme == NULL){
-                printf("Erro na alocacao");
-                    
-            }   
-        }
-        
         if(cont == 0){
+            if(mal == 0){
+                filme = (struct dados*) malloc(sizeof(struct dados));
+                mal++;
+                if(filme == NULL){
+                    printf("Erro na alocacao");
+                        
+                }   
+            }else{
+                filme = (struct dados*) realloc(filme, (*tamanho_struct+1) * sizeof(struct dados));
+            }
             strcpy(aux, vet);
-            filme[i].id = atoi(aux);
             i++;
+            filme[i].id = atoi(aux);
             *tamanho_struct += 1;
-            filme = (struct dados*) realloc(filme, (*tamanho_struct+1) * sizeof(struct dados));
         }
 
         if(cont == 1){
             strcpy(aux, vet);
-            strcpy(filme[i2].nome, aux);
-            i2++;
+            strcpy(filme[i].nome, aux);
+           
         }
         if(cont == 2){
             strcpy(aux, vet);
-            strcpy(filme[i3].sala, aux);
-            i3++;
+            strcpy(filme[i].sala, aux);
+           
         }
         if(cont == 3){
             strcpy(aux, vet);
-            strcpy(filme[i4].hora, aux);
-            i4++;
+            strcpy(filme[i].hora, aux);
         }
         if(cont == 4){
             strcpy(aux, vet);
-            filme[i5].valor = atof(aux);
-            i5++;
+            filme[i].valor = atof(aux);
         }
         cont++;
         if (cont >=5){
