@@ -39,10 +39,9 @@ int emissao(int *tamanho_struct){
                 printf("Digite seu nome completo: ");
                 gets(nome);
                 fflush(stdin);
-                do{//laco para idade
+               
                     printf("Digite sua idade: ");
                     scanf("%i", &idade);
-                    if(16 < idade){
                     printf("----------------------------------------\n\n");
                     printf("|                 TELA                 |\n");  
                     printf("----------------------------------------\n\n");
@@ -68,7 +67,7 @@ int emissao(int *tamanho_struct){
                             }
 
                         }else{
-                            printf("Valor invalido!\n");
+                            printf("Poltrona inexistente!\n");
                             very3 = 1;
                         }
                     }while(very3 != 0);
@@ -149,11 +148,7 @@ int emissao(int *tamanho_struct){
                             flag = 1;
                         }
                         break;
-                    }else{
-                        printf("Voce precisa ser maior de 16 anos!\n");
-                        very2 = 0;
-                    }
-                }while(very2 != 1);
+                
             }
         }
         if(flag != 1){
